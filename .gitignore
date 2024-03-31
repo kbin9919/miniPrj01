@@ -1,0 +1,6 @@
+/.metadata/
+miniPrj01/.settings/org.eclipse.jdt.core.prefs
+miniPrj01/.settings/
+*.project
+*.classpath
+miniPrj01/.gitignore
