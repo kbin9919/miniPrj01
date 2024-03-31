@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import util.Util;
 
 public class Master {
+	public static int num0 = 5;
 	public void masterLogin() throws Exception {
-		int num = 5;
-		if (num > 0) {
+		if (num0 > 0) {
 			Connection conn = Util.getConn();
 			String sql = "SELECT ID FROM MASTER WHERE ID = ? AND PWD1 = ? AND PWD2 = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -32,8 +32,8 @@ public class Master {
 				Util.mvo = vo;
 			}
 			if (Util.mvo == null) {
-				num--;
-				System.out.println("로그인 실패 / 남은 시도 가능 횟수" + num);
+				num0--;
+				System.out.println("로그인 실패 / 남은 시도 가능 횟수" + num0);
 				return;
 			}
 			System.out.println("로그인 성공");
@@ -66,6 +66,8 @@ public class Master {
 					return;
 				}
 			}
+		} else {
+			System.out.println("계정이 잠겼습니다. 새로운 계정을 생성해주세요");
 		}
 	}
 

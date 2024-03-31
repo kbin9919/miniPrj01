@@ -15,6 +15,7 @@ public class MemberController {
 
 		System.out.println("1. 로그인");
 		System.out.println("2. 회원가입");
+		System.out.println("3. 회원탈퇴");
 		System.out.println("9. 취소");
 		System.out.print("번호 입력 : ");
 		String inputNum = Util.SC.nextLine();
@@ -24,6 +25,9 @@ public class MemberController {
 			break;
 		case "2":
 			join();
+			break;
+		case "3":
+			delete();
 			break;
 		case "9":
 			System.out.println("종료..");
@@ -59,7 +63,26 @@ public class MemberController {
 		return;
 	}
 
-	
+	private void delete() throws Exception {
+		System.out.println("회원 탈퇴을 시작합니다.");
+		Connection conn = Util.getConn();
+		String sql = "DELETE FROM MEMBERS WHERE ID = ? AND PWD = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		System.out.print("아이디 : ");
+		String id = Util.SC.nextLine();
+		System.out.print("패스워드 : ");
+		String pwd = Util.SC.nextLine();
+
+		pstmt.setString(1, id);
+		pstmt.setString(2, pwd);
+
+		int result = pstmt.executeUpdate();
+		if (result != 1) {
+			System.out.println("회원 탈퇴 실패, 다시 시도해 주세요.");
+			return;
+		}
+		System.out.println("회원 탈퇴 성공!");
+	}
 
 	private void login() throws Exception {
 		System.out.println("로그인");

@@ -77,7 +77,7 @@ public class PersonalInformationVo {
 	public String toString() {
 		return "[" + no + ", 소속 : " + affiliation + ", 이름 : " + name + ", 군번 : "
 				+ armyNum + ", 계급 : " + rank + ", 주소 : " + address + ", 학력 : " + academicBackground
-				+ ", 취미 : " + hobby + ", 특이사항 : " + specialNote + ", 가족 : " + family + ", 가족 핸드폰 번호"
+				+ ", 취미 : " + hobby + ", 특이사항 : " + specialNote + ", 가족 : " + family + ", 가족 핸드폰 번호 "
 				+ familyPhoneNuber + ", 동반입대 여부" + armyJoinYn + "]";
 	}
 	

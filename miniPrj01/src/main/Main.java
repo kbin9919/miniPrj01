@@ -14,12 +14,13 @@ public class Main {
 	
 	
 	public void main() throws Exception {
-		pi.info();
+		
 		while (Util.run) {
 			if (Util.vo == null) {
 				mc.printMenu();
 			}
 			if (Util.vo != null) {
+				
 				System.out.println("사용하실 기능을 선택하세요");
 
 				System.out.println("0. 권한 요청");
@@ -39,6 +40,7 @@ public class Main {
 					pi.signUp();
 					break;
 				case "2":
+					pi.info();
 					pi.info2();
 					break;
 				case "3":
